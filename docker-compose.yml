@@ -18,8 +18,8 @@ services:
   backend-api:
     container_name: backend-api
     build:
-      context: ./backend-api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: backend-api/Dockerfile
     ports:
       - "8000:8000"
     volumes:
