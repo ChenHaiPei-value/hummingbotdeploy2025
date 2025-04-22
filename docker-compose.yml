@@ -17,12 +17,15 @@ services:
         - emqx-bridge
   backend-api:
     container_name: backend-api
-    image: hummingbot/backend-api:latest
+    build:
+      context: ../../../AppData/Local/Programs/Microsoft VS Code/backend-api
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
     volumes:
       - ./bots:/backend-api/bots
       - /var/run/docker.sock:/var/run/docker.sock
+      - ../../../AppData/Local/Programs/Microsoft VS Code/backend-api:/backend-api
     env_file:
       - .env
     environment:
