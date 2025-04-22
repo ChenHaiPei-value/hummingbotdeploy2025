@@ -17,15 +17,12 @@ services:
         - emqx-bridge
   backend-api:
     container_name: backend-api
-    build:
-      context: .
-      dockerfile: backend-api/Dockerfile
+    image: hummingbot/backend-api:latest
     ports:
       - "8000:8000"
     volumes:
       - ./bots:/backend-api/bots
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./backend-api:/backend-api
     env_file:
       - .env
     environment:
